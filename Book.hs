@@ -1,13 +1,13 @@
 import Data.List (intercalate)
 
-data book = Book{
+data Book = Book{
     title::String,
     publisher::String,
     date::String,
     authors::[String]
 }
 
-book::ook
+book :: Book
 book = Book {
     title = "title",
     publisher = "publisher",
@@ -16,7 +16,7 @@ book = Book {
 }
 
 displayBookInfo::Book->String
-displayBookInfo book = "title:" ++ title Book ++ ", publisher:" ** publisher book ++ ", date:" ++ date book ++ ", authors: " ++ intercalate ", " (authors) book
+displayBookInfo book = "title:" ++ title book ++ ", publisher:" ++ publisher book ++ ", date:" ++ date book ++ ", authors: " ++ intercalate ", " (authors book)
 
 main::IO()
-main = putString(displayBookInfo book)
+main = putStrLn(displayBookInfo book)
